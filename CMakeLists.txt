@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(cob_sick_s300)
+project(sick_s300_laser)
 
 find_package(catkin REQUIRED COMPONENTS diagnostic_msgs roscpp sensor_msgs std_msgs)
 
@@ -9,18 +9,18 @@ catkin_package()
 
 ### BUILD ###
 include_directories(
-  common/include
+  include
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME}
-  common/src/ScannerSickS300.cpp
-  common/src/SerialIO.cpp
-  ros/src/${PROJECT_NAME}.cpp
+  src/ScannerSickS300.cpp
+  src/SerialIO.cpp
+  src/${PROJECT_NAME}.cpp
 )
 
-add_executable(cob_scan_filter ros/src/cob_scan_filter.cpp)
+add_executable(cob_scan_filter src/cob_scan_filter.cpp)
 
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 add_dependencies(cob_scan_filter ${catkin_EXPORTED_TARGETS})
@@ -35,6 +35,6 @@ install(TARGETS ${PROJECT_NAME} cob_scan_filter
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY ros/test
+install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
