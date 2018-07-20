@@ -20,16 +20,13 @@ add_executable(${PROJECT_NAME}
   src/${PROJECT_NAME}.cpp
 )
 
-add_executable(cob_scan_filter src/cob_scan_filter.cpp)
 
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
-add_dependencies(cob_scan_filter ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-target_link_libraries(cob_scan_filter ${catkin_LIBRARIES})
 
 ### INSTALL ###
-install(TARGETS ${PROJECT_NAME} cob_scan_filter
+install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
