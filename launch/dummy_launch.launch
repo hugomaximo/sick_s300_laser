@@ -2,8 +2,8 @@
 <launch>
 
 	<!-- start laser driver -->
-	<node name="laser_front" pkg="cob_sick_s300" type="cob_sick_s300" respawn="false" output="screen">
-		<rosparam command="load" file="$(find cob_sick_s300)/ros/test/dummy_config.yaml"/>
+	<node name="laser_front" pkg="sick_s300_laser" type="sick_s300_laser" respawn="false" output="screen">
+		<rosparam command="load" file="/home/hugo/teste_sick/src/sick_s300_laser/launch/dummy_config.yaml"/>
 	</node>
 
 </launch>

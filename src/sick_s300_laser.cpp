@@ -86,7 +86,7 @@ class NodeClass
 			nh = ros::NodeHandle("~");
 
 			if(!nh.hasParam("port")) ROS_WARN("Used default parameter for port");
-			nh.param("port", port, std::string("/dev/ttyUSB0"));
+			nh.param("port", port, std::string("/dev/ttyUSB2"));
 
 			if(!nh.hasParam("baud")) ROS_WARN("Used default parameter for baud");
 			nh.param("baud", baud, 500000);
